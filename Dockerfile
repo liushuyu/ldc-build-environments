@@ -14,3 +14,4 @@ RUN bash /tmp/setup.sh && rm -f /tmp/setup.sh /tmp/apt-llvm-org.sources.in
 # set default C/C++ compiler
 ENV CC=clang-${LLVM_VERSION}
 ENV CXX=clang++-${LLVM_VERSION}
+ENV LLVM_ROOT_DIR=/usr/lib/llvm-${LLVM_VERSION}/

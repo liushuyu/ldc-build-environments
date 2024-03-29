@@ -33,7 +33,7 @@ jobs:
         name: Setup Docker BuildX system
       - name: Login to DockerHub
         uses: docker/login-action@v3
-        if: (github.ref == 'refs/heads/master') && false
+        if: (github.ref == 'refs/heads/master')
         # && (github.repository == 'ldc-developers/ldc-build-environments')
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -41,9 +41,9 @@ jobs:
       - uses: docker/build-push-action@v5
         name: Build image
         with:
-          push: ${{ (github.ref == 'refs/heads/master') && false }}
+          push: ${{ (github.ref == 'refs/heads/master') }}
           # && (github.repository == 'ldc-developers/ldc-build-environments')
           build-args: |
             UBUNTU_VERSION=${{ matrix.ubuntu_version }}
             LLVM_VERSION=${{ matrix.llvm_version }}
-          tags: ldc-developers/build-environments:${{ matrix.ubuntu_version }}-${{ matrix.llvm_version }}
+          tags: liushuyu/ldc-build-environments:${{ matrix.ubuntu_version }}-${{ matrix.llvm_version }}

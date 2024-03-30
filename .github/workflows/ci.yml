@@ -38,7 +38,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/build-push-action@v3
+      - uses: docker/build-push-action@v5
         name: Build image
         with:
           push: ${{ (github.ref == 'refs/heads/master') && false }}

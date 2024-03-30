@@ -12,6 +12,7 @@ COPY --chown=root:root apt-llvm-org.sources.in /tmp/apt-llvm-org.sources.in
 COPY setup.sh /tmp/setup.sh
 RUN bash /tmp/setup.sh && rm -f /tmp/setup.sh /tmp/apt-llvm-org.sources.in
 # set default C/C++ compiler
-ENV CC=clang-${LLVM_VERSION}
-ENV CXX=clang++-${LLVM_VERSION}
+# disabled for now, as it breaks ImportC
+#ENV CC=clang-${LLVM_VERSION}
+#ENV CXX=clang++-${LLVM_VERSION}
 ENV LLVM_ROOT_DIR=/usr/lib/llvm-${LLVM_VERSION}/

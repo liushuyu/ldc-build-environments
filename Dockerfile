@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV LLVM_VERSION=${LLVM_VERSION}
 # base dependencies
 RUN apt-get update && \
+    apt-get full-upgrade -y && \
     apt-get install -y wget git bash xz-utils build-essential python3-pip pkg-config ninja-build gdb ccache && \
     apt-get clean
 RUN pip3 install -U setuptools wheel lit
